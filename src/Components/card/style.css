@@ -1,0 +1,51 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    background-color: brown;
+    border-radius: 10px;
+    width: auto;
+    color: beige;
+    align-items: center;
+    padding: 15px;
+    row-gap: 10px;
+}
+.cartao{
+    display: flex;
+    flex-direction: column;
+    background-color: brown;
+    border-radius: 10px;
+    width: 450px;
+    color: beige;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    gap: 10px;
+    margin: 15px;
+}
+
+.cartao h2{
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+
+.cartao .attacks, .cartao .abilities, .cartao .types {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    
+}
+.cartao .attacks h3,.abilities h3,.types h3{
+    display: flex;
+    font-size: 1.6rem;
+    
+}
+.cartao .attacks ul,.abilities ul,.types ul{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    width: 80%;
+    align-items: center;
+}
