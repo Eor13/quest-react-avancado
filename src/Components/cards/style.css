@@ -8,11 +8,58 @@ h1{
 }
 .container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    background-color: brown;
+    border-radius: 10px;
+    width: 70%;
+    max-height: 70vh;
+    color: beige;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    padding: 15px;
+    gap: 10px;
     margin-top: 15px;
-    padding: 10px;
+    flex-wrap: wrap;
+}
+.container ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    gap: 10px;
+    overflow-y: scroll;
+    
+}
+.container li{
+    border: 4px double white;
+    width: 100px;
+    padding: 5px;
+    list-style: none;
+    text-align: center;
+}
+
+.container li:hover{
+    background-color: rgb(230, 198, 156);
+    color: brown;
+}
+
+
+.container .btn{
+    width: 120px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px none black;
+}
+.container .btn:hover{
+    background-color: black;
+    color: beige;
+}
+
+@media(max-width:830px){
+    .container ul{
+        overflow-y: scroll;
+    }
 }

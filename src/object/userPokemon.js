@@ -4,10 +4,6 @@ const pokemonData = {
     movesList: [],
     abilitiesList:[],
     types:[],
-    // Lista de habilidades do pokemon (abilities)
-    // a lista de habilidades deve apresentar o nome e o texto
-    // descritivo da habilidade
-    // Tipo do pokemon (type)
     setData(dataSearched){
         this.imagePokemon = dataSearched.sprites.front_default
         console.log(this)

@@ -15,4 +15,5 @@ const Card = () =>{
     )
 }
 
+
 export {Card}

@@ -1,17 +1,24 @@
+body{
+    background-color: silver;
+    height: 100vh;
+}
 .cabecalho{
     display: flex;
     flex-direction: row;
-    background-color: silver;
     justify-content: space-around;
     align-items: center;
     width: 100vw;
+}
+.cabecalho .logo{
+    width: 30%;
+    height: 30%;
 }
 
 .container-de-exibicao{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: silver;
     width: 100vw;
+    max-width: 1440px;
     row-gap: 10px;
 }

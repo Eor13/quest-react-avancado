@@ -1,11 +1,11 @@
-const pokemonListData = {
-    name: '',
-    imagePokemon: '',
-    setData(pokemonsList){
-        this.name = pokemonsList.results.name
-        this.url = pokemonsList.results
-        console.log(this)
-    }
-}
+// const pokemonListData = {
+//     name: '',
+//     imagePokemon: [],
+//     setData(pokemonsList){
+//         this.name = pokemonsList.name
+//         this.imagePokemon = pokemonsList.url.sprites.front_default
+//         console.log(this)
+//     }
+// }
 
-export default pokemonListData
+// export {pokemonListData}
