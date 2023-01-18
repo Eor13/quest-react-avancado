@@ -6,7 +6,10 @@ const InputSearched =() => {
     const [input, setInput] = useState('')
     
     
-    const handleInput =(e) => {setInput(e.target.value)}
+    const handleInput =(e) => {
+        setInput(
+            e.target.value
+        )}
 
     return(
         <div className='campo'> 

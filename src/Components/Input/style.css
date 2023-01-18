@@ -3,10 +3,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 3rem;
     margin-right: 10px;
 }
 .campo input{
     font-size: 2rem;
     width: 250px;
+    color: #5C2C2C;
+}
+.campo label{
+    font-size: 3rem;
+    color: #5C2C2C;
 }

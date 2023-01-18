@@ -1,24 +1,31 @@
-import {pokemonSearched} from './baseUrl'
+import {baseUrl} from './baseUrl'
 import {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom'
 import pokemonData from '../object/userPokemon'
+import { Link } from 'react-router-dom'
 
 
+// const pokemonTyped = "charizard"
+
+// const pokemonSearched = `${baseUrl}pokemon/${id}`
 
 
-async function searchPokemons(){
-    const response = await fetch(`${pokemonSearched}`)
+async function searchPokemons(id){
+    const response = await fetch(`${baseUrl}pokemon/${id}`)
     const result =  await response.json()
     return result
 }
 
-const ShowSearch = () => {
+const PokemonDetails = () => {
     const [pokemon, setPokemon] = useState({
         info: ''
     })
 
+    const {id} = useParams()
+
     useEffect(() =>{
         const fetchData = async () =>{
-            const dataSearched = await searchPokemons()
+            const dataSearched = await searchPokemons(id)
 
             setPokemon({
                 info: dataSearched
@@ -27,9 +34,9 @@ const ShowSearch = () => {
         }
         fetchData()
         console.log(pokemonData)
-    },[])   
+    },[id])   
     return(
-        <>
+        <div className='cartao'>
             {
             <>
                 <img className='image' src={pokemonData.imagePokemon} alt={pokemon.info.name}/>
@@ -52,10 +59,11 @@ const ShowSearch = () => {
                         {pokemonData.movesList.map((move) =>(<li> {move.move.name}</li> ))}
                     </ul>
                 </div>
+                <Link className='btn' to={"/"}>Retornar à Lista</Link>
             </>
             }
-        </>
+        </div>
     )
 }
 
-export {ShowSearch}
+export { PokemonDetails }

@@ -1,24 +1,13 @@
-import ImagemLogo from './Components/image/logo.png';
+import { ThemeProvider } from './Components/them-context';
 import './App.css'
-import {InputSearched} from './Components/Input/index'
-import { Cards } from './Components/cards';
-// import { Card } from './Components/card';
+import { Body } from './Components/body';
 
 
 function App() {
   return (
-    <>
-    <header className="cabecalho">
-      <img src={ImagemLogo} alt="pokemon" className='logo' />
-      <nav>
-        <InputSearched/>
-      </nav>
-    </header>
-    <main className="container-de-exibicao">
-      <Cards/>
-      {/* <Card/> */}
-    </main>
-    </>
+    <ThemeProvider>
+      <Body/>
+    </ThemeProvider>
   )
 }
 

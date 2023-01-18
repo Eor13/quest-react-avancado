@@ -1,15 +1,15 @@
-import { ListaDePokemons,} from '../../services/pokedexList'
+import { Pokedex } from '../../services/pokedexList'
 import './style.css'
 
-const Cards =() =>{
+const CardsList =() =>{
     return(
         <>
             <h1>Pokedex</h1>
             <div className='container'>
-                <ListaDePokemons/>
+                <Pokedex/>
             </div>
         </>
     )
 }
 
-export {Cards}
+export { CardsList }
