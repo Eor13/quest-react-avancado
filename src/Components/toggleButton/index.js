@@ -1,14 +1,9 @@
 import { useContext } from "react";
-import { ThemeContext, Themes } from "../them-context";
-import { Button } from "../button";
+import { ThemeContext, Themes } from "../../services/theme-context";
+import { TogglerButton } from "../button";
 
 const ThemeTogglerButton = () =>{
     const {theme, setTheme} = useContext(ThemeContext)
-    return(
-        <>
-            <Button onClick={() => setTheme(theme === Themes.light ? Themes.dark : Themes.light)}/>
-        </>
-    )
+    return <TogglerButton onClick={() => setTheme(theme === Themes.light ? Themes.dark : Themes.light)}/>
 }
-
 export { ThemeTogglerButton }

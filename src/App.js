@@ -1,14 +1,24 @@
-import { ThemeProvider } from './Components/them-context';
-import './App.css'
+import { ThemeProvider } from './services/theme-context'
 import { Body } from './Components/body';
+import { createGlobalStyle } from 'styled-components';
 
 
-function App() {
+export function App() {
   return (
     <ThemeProvider>
-      <Body/>
+        <GlobalStyle/>
+        <Body/>
     </ThemeProvider>
+
   )
 }
 
-export default App;
+const GlobalStyle = createGlobalStyle`
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    text-decoration: none;
+  }
+`
