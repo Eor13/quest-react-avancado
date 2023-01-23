@@ -1,19 +1,20 @@
-// import { inputMonster } from '../../services/searchPokemon'
 import { useState } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const InputSearched =() => {
-    const [input, setInput] = useState('')
-    // const navigate = useNavigate()
+    const [name, setName] = useState('')
+    const navigate = useNavigate()
     
     const handleSubmit =(e) => {
         e.preventDefault()
-        // navigate(`${input}`)
-        setInput("")
+        navigate(`${name}`)
+
+        if(!name) return navigate(`/?${name}`)
+        setName("")
 
         
-        console.log(input)
+        console.log(name)
     }
 
     return(
@@ -23,8 +24,9 @@ const InputSearched =() => {
             type={"text"} 
             id='search' 
             placeholder={"Digite o pokemon" }
-            onChange={(e) => {setInput(e.target.value)}} 
-            value={input}
+            onChange={(e) => {setName(e.target.value)}} 
+            value={name}
+
             />
         </Form>
     )

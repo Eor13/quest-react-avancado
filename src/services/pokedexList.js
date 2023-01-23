@@ -6,16 +6,17 @@ import styled from 'styled-components'
 let QuantityPokemons = 10
 console.log(QuantityPokemons)
 let offSet = 0
-let fullList = `${ baseUrl }pokemon?limit=${QuantityPokemons}&offset=${offSet}`
 
 async function CompleteListOfPokemons(){
+  let fullList = `${ baseUrl }pokemon?limit=${QuantityPokemons}&offset=${offSet}`
+  console.log(QuantityPokemons)
   const response = await fetch(`${fullList}`)
   return await response.json()
 }
 
 const Pokedex = () => {
   const [pokedex, setPokedex] = useState([])//primeira chamada de useState retorna um array vazio
-  const [More,setMore] = useState(QuantityPokemons)
+  const [More,setMore] = useState(20)
 
   useEffect(() =>{
     const fetchData = async () =>{
@@ -31,11 +32,12 @@ const Pokedex = () => {
       const result = await response.json()
       return result
     }
-  },[])
+  },[QuantityPokemons])
   
   const AddMorePokemons = () =>{
     setMore(( PrevMore) => PrevMore+10)
-    QuantityPokemons = More  
+    QuantityPokemons = More
+
     console.log(QuantityPokemons)
   }
 
@@ -55,8 +57,8 @@ const Pokedex = () => {
                 )
             })}
           </Ul>
-          <Button type='submit' className='btn' onClick={AddMorePokemons} >Carregar Mais</Button>
-          <p>{More} Pokemons</p>
+          <Button type='submit' className='btn' onClick={AddMorePokemons} >Carregar Mais</Button>  
+
       </>
     )
   }
@@ -100,11 +102,14 @@ const Li = styled.li`
 }
 `
 const Img = styled.img`
-  width: 100%; 
+  width: 95%; 
+  @media(max-width:800px){
+    width: 92%;    
+  } 
   @media(max-width:400px){
     width: 90%;    
-  } 
-`
+  }
+  `
 const P = styled.p`
   color: #5C2C2C;
 `

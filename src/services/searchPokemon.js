@@ -1,16 +1,17 @@
 import {baseUrl} from './baseUrl'
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-// import { useParams, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import pokemonData from '../object/userPokemon'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-// async function searchPokemonsForName(typed){
-//     const response = await fetch(`${baseUrl}pokemon/${typed}`)
-//     const result =  await response.json()
-//     return result
-// }
+
+async function searchPokemonsForName(name){
+    const response = await fetch(`${baseUrl}pokemon/${name}`)
+    const result =  await response.json()
+    return result
+}
 
 async function searchPokemons(id){
     const response = await fetch(`${baseUrl}pokemon/${id}`)
@@ -24,12 +25,12 @@ const PokemonDetails = () => {
     })
 
     const {id} = useParams()
-    // const {typed} = useSearchParams()
-    // console.log(typed)
+    const {name} = useSearchParams()
+    console.log(name)
 
     useEffect(() =>{
         const fetchData = async () =>{
-            const dataSearched = await searchPokemons(id)
+            const dataSearched = await searchPokemons(id) || await searchPokemonsForName(name)
             setPokemon({
                 info: dataSearched
             })
@@ -38,7 +39,7 @@ const PokemonDetails = () => {
         }
         fetchData()
         console.log(pokemonData)
-    },[id])   
+    },[id, name])   
     
     // useEffect(() =>{
     //     const fetchData = async () =>{

@@ -11,8 +11,8 @@ export const Body = () => {
     return(
         <Div style={{color:theme.color, background:theme.background}}>
             <Header >
-                <Img src={ImagemLogo} alt="pokemon"/>
                 <Nav>
+                <Img src={ImagemLogo} alt="Logo Pokemon"/>
                 <InputSearched/>
                 <ThemeTogglerButton/>
                 </Nav>
@@ -39,11 +39,12 @@ const Header = styled.header`
     }
 `
 const Img = styled.img`
-    width: 30%;
-    height: 30%;
+    width: 20%;
+    height: 20%;
 `
 const Nav = styled.nav`
     display: flex;
+    justify-content: space-around;
     column-gap: 20px;
     align-items: center;
     

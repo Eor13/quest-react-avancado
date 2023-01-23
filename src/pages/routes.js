@@ -8,6 +8,7 @@ const AppRoutes = () =>{
             <Routes>
                 <Route exact path="/" element={<CardsList/>}/>
                 <Route exact path="/:id" element={<Card/>}/>
+                <Route exact path="/pokemon/:name" element={<Card/>}/>
             </Routes>
         </BrowserRouter>
     )

@@ -16,7 +16,7 @@ const PageTitle = styled.h1`
     text-align: center;
     box-shadow: 0px 2px 15px black;
     width: 95%;
-    font-size: 4rem;
+    font-size: 3.5rem;
     border-radius: 8px;
     margin-top: 10px;
     color: #DB6767;
@@ -41,8 +41,8 @@ const Section = styled.section`
     padding: 5px 15px;
     gap: 10px;
     margin-top: 5px;
-    @media(max-width:400px){
-        max-height: 80vh;
+    @media(max-width:500px){
+        max-height: 75vh;
     }
 `
 export { CardsList }
