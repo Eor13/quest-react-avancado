@@ -24,6 +24,7 @@ const Pokedex = () => {
       const dataPokemon = pokemonsList.results.map(async (pokemon)=>{return await getPokemon(pokemon.url)})
       const results = await Promise.all(dataPokemon)
       setPokedex(results)
+      console.log(results)
     }
     fetchData()
     
@@ -49,9 +50,9 @@ const Pokedex = () => {
                 return (
                   <Li key={index}>
                     <Link to={`/${poke.id}`}>
-                    <Img src={poke.sprites.front_default} alt={poke.name}/>
-                    <P>#{poke.id}</P>
-                    <P>{poke.name}</P>
+                      <Img src={poke.sprites.front_default} alt={poke.name}/>
+                      <P>#{poke.id}</P>
+                      <P>{poke.name}</P>
                     </Link>
                   </Li>
                 )

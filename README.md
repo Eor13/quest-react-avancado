@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Quest Avançada de React
+Projeto realizado para prática de conceitos com objetivo acadêmico, projeto proposto pelo cruso @DevQuest para simular um teste Técnico.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<strong style="color:brown;">Prévia do design da Quest com detalhamento de suas Funcionalidades.</strong>
 
-## Available Scripts
+### O objetivo da Quest foi construir em React uma lista com 10 pokémons retirado do <a  href="https://pokeapi.co/" target="_blank">PokeAPI</a> com seus nomes e imagens, podendo ser buscado + 10 pokemons a cada click realizado no botão posicionado ao final da lista. Cada quadrado que contém um pokemom pode ser clicavél, desta forma direcionando a outra página com informações especifícas(Nome, Tipo, Habiidades, ...) do pokémon clicado.
 
-In the project directory, you can run:
+<a href="" target="_blank">Clique Aqui para ir direto para página</a>
 
-### `npm start`
+## Tecnologias utilizadas
+- Javascript
+- React
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Conceitos Aplicados de cada Tecnologia
+<ol>
+    <li>Javascript
+        <ul>
+            <li>Utilização de ArrowFunctions</li>
+            <li>Utilização de Condicionais</li>
+            <li>Utilização de Operadores Ternários</li>
+            <li>Utilização de Higher Order Functions</li>
+            <li>Utilização de Interpolação de String</li>
+            <li>Utilização de Variáveis em diferentes tipos de Escopo</li>
+            <li>Manipulando atributos com DOM </li>
+            <li>Utilização de Eventos com DOM </li>
+            <li>Utilização do módulos ( import e export ) </li>
+        </ul>
+    </li>
+    <li>React
+        <ul>
+            <li>Uso do Create React App para criar o projeto </li>
+            <li>Utilização de componentes de Função</li>
+            <li>Utilização de Elementos de Função</li>
+            <li>Utilização de Props</li>
+            <li>Utilização de Eventos de "Click e Change"</li>
+            <li>Utilização de Arrow functions como padrão para estabelecer Funções</li>
+            <li>Utilização de Components Stateless e StateFull</li>
+            <li>Utilização de Hooks como useState e useEffect</li>
+            <li>Renderização de Condicionais</li>
+            <li>Utilização de Rotas com ReactRouter</li>
+        </ul>
+    </li>
+    <li>CSS
+        <ul>
+            <li>Utilização de <strong style="color:green;">Styled Components através do React</strong> para estilização das páginas</li>
+        </ul>
+    </li>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+</ol>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

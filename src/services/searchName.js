@@ -1,1 +1,0 @@
-import { PokemonDetails } from "./searchPokemon";

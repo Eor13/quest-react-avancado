@@ -1,60 +1,36 @@
 import {baseUrl} from './baseUrl'
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-// import { useSearchParams } from 'react-router-dom'
 import pokemonData from '../object/userPokemon'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
-// async function searchPokemonsForName(name){
-//     const response = await fetch(`${baseUrl}pokemon/${name}`)
-//     const result =  await response.json()
-//     return result
-// }
 
-async function searchPokemons(id){
-    const response = await fetch(`${baseUrl}pokemon/${id}`)
+async function searchPokemonsForName(name){
+    const response = await fetch(`${baseUrl}pokemon/${name}`)
     const result =  await response.json()
     return result
 }
 
-const PokemonDetails = () => {
+const PokemonDetailsForName = () => {
     const [pokemon, setPokemon] = useState({
-        info: '',
-        abilities:''
+        info: ''
     })
-    const {id} = useParams()
-    // const {searchParams} = useSearchParams()
-    // const name = searchParams.get('q')
-    // console.log(name)
+    const {name} = useParams()
 
     useEffect(() =>{
         const fetchData = async () =>{
-            const dataSearched = await searchPokemons(id)
-            // || await searchPokemonsForName(name)
-
-            const dataAbilities = dataSearched.abilities.map(async (ability)=>{return await getAbility(ability.ability.url)})
-            console.log(dataAbilities)
-            const resultsAbilities = await Promise.all(dataAbilities)
-
+            const dataSearched = await searchPokemonsForName(name)
             setPokemon({
-                info: dataSearched,
-                abilities: resultsAbilities
+                info: dataSearched
             })
             pokemonData.setData(dataSearched)
             console.log(dataSearched)
-            console.log(resultsAbilities)
         }
-        
         fetchData()
-        async function getAbility(url){
-            const response = await fetch(url)
-            const result = await response.json()
-            return result
-        }
-
-    },[id])
+        console.log(pokemonData)
+    },[name])
 
     return(
         <Section>
@@ -71,10 +47,7 @@ const PokemonDetails = () => {
                 <DivInformations>
                     <H3>habilidades:</H3>
                     <Ul>
-                        {/* <Li>{abilities.resultsAbilities.name}</Li>
-
-                        {abiliresultsAbilities.map((ability)=>{
-                            return(<Li>{ability.ability.name}</Li>)})} */}
+                        {pokemonData.abilitiesList.map((ability)=>{return <Li>{ability.ability.name}</Li>})}
                     </Ul>
                 </DivInformations>
                 <DivInformations attacks>
@@ -90,7 +63,7 @@ const PokemonDetails = () => {
     )
 }
 
-export { PokemonDetails }
+export { PokemonDetailsForName }
 
 const Section = styled.section`
     display: flex;

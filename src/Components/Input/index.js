@@ -1,33 +1,32 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const InputSearched =() => {
     const [name, setName] = useState('')
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     
     const handleSubmit =(e) => {
         e.preventDefault()
-        navigate(`${name}`)
 
-        if(!name) return navigate(`/?${name}`)
+        // if(!name) return navigate(`/?q=${name}`)
         setName("")
 
-        
-        console.log(name)
+        // console.log(name)
     }
 
     return(
         <Form onSubmit={handleSubmit}> 
-            <Label htmlFor='search' >Pesquisar</Label>
-            <Input 
-            type={"text"} 
-            id='search' 
-            placeholder={"Digite o pokemon" }
-            onChange={(e) => {setName(e.target.value)}} 
-            value={name}
-
-            />
+            {/* <Link to={`/${name}`}> */}
+                <Label htmlFor='search' >Pesquisar</Label>
+                <Input 
+                type={"text"} 
+                id='search' 
+                placeholder={"Digite o pokemon" }
+                onChange={(e) => {setName(e.target.value)}} 
+                value={name}
+                />
+            {/* </Link> */}
         </Form>
     )
 }
