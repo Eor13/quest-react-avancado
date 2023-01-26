@@ -38,6 +38,7 @@ Projeto realizado para prática de conceitos com objetivo acadêmico, projeto pr
             <li>Utilização de Hooks como useState e useEffect</li>
             <li>Renderização de Condicionais</li>
             <li>Utilização de Rotas com ReactRouter</li>
+            <li>Atribuição via Desestruturação de Itens</li>
         </ul>
     </li>
     <li>CSS

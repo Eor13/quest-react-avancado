@@ -21,6 +21,7 @@ const Button = styled.button`
     justify-content: center;
     width: 100px;
     height: 100px;
+    cursor:pointer;
 
     @media(max-width:830px){
         width: 75px;

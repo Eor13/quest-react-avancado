@@ -5,7 +5,6 @@ const Themes = {
     light: {
         color: '#000',
         background: 'linear-gradient(to right, #80FFCF, #AF62B8)'
-        // background: 'linear-gradient(to right, #D41E1E, #0C6DC7 )'
     },
     dark:{
         color: '#fff',

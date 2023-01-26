@@ -1,17 +1,11 @@
 import {baseUrl} from './baseUrl'
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-// import { useSearchParams } from 'react-router-dom'
 import pokemonData from '../object/userPokemon'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
-// async function searchPokemonsForName(name){
-//     const response = await fetch(`${baseUrl}pokemon/${name}`)
-//     const result =  await response.json()
-//     return result
-// }
 
 async function searchPokemons(id){
     const response = await fetch(`${baseUrl}pokemon/${id}`)
@@ -25,26 +19,19 @@ const PokemonDetails = () => {
         abilities:''
     })
     const {id} = useParams()
-    // const {searchParams} = useSearchParams()
-    // const name = searchParams.get('q')
-    // console.log(name)
 
     useEffect(() =>{
         const fetchData = async () =>{
-            const dataSearched = await searchPokemons(id)
-            // || await searchPokemonsForName(name)
+            const dataSearched = await searchPokemons(id)   
 
             const dataAbilities = dataSearched.abilities.map(async (ability)=>{return await getAbility(ability.ability.url)})
-            console.log(dataAbilities)
             const resultsAbilities = await Promise.all(dataAbilities)
 
             setPokemon({
                 info: dataSearched,
                 abilities: resultsAbilities
             })
-            pokemonData.setData(dataSearched)
-            console.log(dataSearched)
-            console.log(resultsAbilities)
+            pokemonData.setData(dataSearched, resultsAbilities)
         }
         
         fetchData()
@@ -60,27 +47,30 @@ const PokemonDetails = () => {
         <Section>
             {
             <>
-                <Img src={pokemonData.imagePokemon} alt={pokemon.info.name}/>
+                <Img src={pokemonData.imagePokemon} alt={pokemon.name}/>
                 <H2>{pokemonData.name}</H2>
                 <DivInformations>
                     <H3>Tipagem:</H3>
                     <Ul>
-                        {pokemonData.types.map((type)=>(<Li>{type.type.name}</Li>))}
+                        {pokemonData.types.map((type, index)=>(<Li key={index}>{type.type.name}</Li>))}
                     </Ul>
                 </DivInformations>
                 <DivInformations>
                     <H3>habilidades:</H3>
-                    <Ul>
-                        {/* <Li>{abilities.resultsAbilities.name}</Li>
-
-                        {abiliresultsAbilities.map((ability)=>{
-                            return(<Li>{ability.ability.name}</Li>)})} */}
+                    <Ul abilityName>
+                        {pokemonData.abilitiesList.map((ability, index)=>{
+                            return(
+                                <Div key={index}>
+                                <Li abilityName ability>{ability.name}</Li>
+                                <Li abilityDescription ability>{ability.effect_entries[1].effect}</Li>
+                                </Div>
+                            )})}
                     </Ul>
                 </DivInformations>
                 <DivInformations attacks>
                     <H3>Lista de Ataques</H3>
                     <Ul attack>
-                        {pokemonData.movesList.map((move) =>(<Li> {move.move.name}</Li> ))}
+                        {pokemonData.movesList.map((move, index) =>(<Li key={index}> {move.move.name}</Li> ))}
                     </Ul>
                 </DivInformations>
                 <Link to={"/"}><Btn>Retornar à Lista</Btn></Link>
@@ -110,7 +100,6 @@ const Section = styled.section`
 const Img = styled.img`
     width: 40%;
     background-color: #A31717;
-    // background-color: #fff;
     border-radius: 50%;
 `
 const H2 = styled.h2`
@@ -126,28 +115,40 @@ const DivInformations = styled.div`
     align-items: center;
     padding: 10px;
     border: 4px double #A31717;
-    height: ${props => props.attacks ?"250px": "none"};
-    `
-    const H3 = styled.h3`
+    max-height: ${props => props.attacks ?"250px": "none"};
+`
+const H3 = styled.h3`
     display: flex;
     font-size: 1.6rem;
     color: #5C2C2C;
-    `
-    const Ul = styled.ul`
+`
+const Ul = styled.ul`
     display: flex;
     flex-wrap: wrap;
+    justify-content: ${props => props.abilityName ? "flex-start" : "none"};
     column-gap: 30px;
-    width: 80%;
-    align-items: center;
-    list-style-type: disclosure-closed;
+    width: 90%;
+    align-items: flex-start;
+    list-style-type: disclosure-closed  ;
     list-style-position:inside;
-    overflow-y: ${props => props.attack ?"scroll": "none"};
-    
-    `
-    const Li = styled.li`
+    overflow-y: ${props => props.attack ? "scroll": "none"};
+
+`
+const Div = styled.div`
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    width:100%;  
+`
+const Li = styled.li`
     color: #5C2C2C;
-    width: 110px;
+    width: ${props => props.ability ? "100%" : "20%" };
     padding-bottom: 5px;
+    cursor:${props => props.abilityDescription ? "none" : "pointer"};
+    font-weight:${props => props.abilityName ?"900": "none"};
+    font-size:${props => props.abilityName ?"1.3rem": "none"};
+    list-style-type: ${props => props.abilityDescription ? "none" : "disclosure-closed"};
+    text-align: ${props => props.abilityDescription ? "justify" : "none"};
     &:hover{
         color: black;
     }

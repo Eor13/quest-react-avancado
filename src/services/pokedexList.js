@@ -4,12 +4,10 @@ import { baseUrl } from './baseUrl'
 import styled from 'styled-components'
 
 let QuantityPokemons = 10
-console.log(QuantityPokemons)
 let offSet = 0
 
 async function CompleteListOfPokemons(){
   let fullList = `${ baseUrl }pokemon?limit=${QuantityPokemons}&offset=${offSet}`
-  console.log(QuantityPokemons)
   const response = await fetch(`${fullList}`)
   return await response.json()
 }
@@ -24,7 +22,7 @@ const Pokedex = () => {
       const dataPokemon = pokemonsList.results.map(async (pokemon)=>{return await getPokemon(pokemon.url)})
       const results = await Promise.all(dataPokemon)
       setPokedex(results)
-      console.log(results)
+      // console.log(results)
     }
     fetchData()
     
@@ -38,8 +36,6 @@ const Pokedex = () => {
   const AddMorePokemons = () =>{
     setMore(( PrevMore) => PrevMore+10)
     QuantityPokemons = More
-
-    console.log(QuantityPokemons)
   }
 
   return (
