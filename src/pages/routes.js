@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Card } from "../Components/card";
+import { Card, CardTypeList } from "../Components/card";
 import { CardsList } from "../Components/cardsList";
 import styled from "styled-components";
 import { NavBar } from "../Components/NavBar";
 import { useContext } from "react";
-import { ThemeContext } from '../services/theme-context'
+import { ThemeContext } from '../services/theme-context';
 
 
 const AppRoutes = () =>{
@@ -17,6 +17,7 @@ const AppRoutes = () =>{
                     <Routes>
                         <Route exact path="/" element={<CardsList/>}/>
                         <Route exact path="/:id" element={<Card/>}/>
+                        <Route exact path="/type/:typeName" element={<CardTypeList/>}/>
                     </Routes>
                 </Main>
             </Div>

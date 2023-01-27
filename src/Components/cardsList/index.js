@@ -1,5 +1,5 @@
-import { Pokedex } from '../../services/pokedexList'
-import styled from 'styled-components'
+import { Pokedex } from '../../services/pokedexList';
+import styled from 'styled-components';
 
 const CardsList =() =>{
     return(

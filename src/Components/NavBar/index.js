@@ -2,8 +2,8 @@ import ImagemLogo from '../image/logo.png';
 import { ThemeTogglerButton } from '../toggleButton';
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const InputSearched =() => {
     const [name, setName] = useState('')
@@ -29,7 +29,6 @@ const InputSearched =() => {
     )
 }
 
-// Component
 const NavBar = () => {
     return(
         <Nav>
@@ -60,8 +59,6 @@ column-gap: 20px;
     width: 95vw;    
 }
 `
-
-
 const Form = styled.form`
 display: flex;
 flex-direction: column;
@@ -76,7 +73,6 @@ color: #5C2C2C;
 @media(max-width:830px){
     width: 180px; 
     font-size: 1.7rem;
-    
 }
 @media(max-width:500px){
     width: 90px;

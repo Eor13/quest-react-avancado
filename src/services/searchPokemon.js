@@ -1,11 +1,9 @@
-import {baseUrl} from './baseUrl'
-import {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
-import pokemonData from '../object/userPokemon'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-
-
+import {baseUrl} from './baseUrl';
+import {useState, useEffect} from 'react';
+import {  useParams } from 'react-router-dom';
+import pokemonData from '../object/userPokemon';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 async function searchPokemons(id){
     const response = await fetch(`${baseUrl}pokemon/${id}`)
@@ -19,7 +17,7 @@ const PokemonDetails = () => {
         abilities:''
     })
     const {id} = useParams()
-
+    
     useEffect(() =>{
         const fetchData = async () =>{
             const dataSearched = await searchPokemons(id)   
@@ -40,7 +38,6 @@ const PokemonDetails = () => {
             const result = await response.json()
             return result
         }
-
     },[id])
 
     return(
@@ -52,7 +49,7 @@ const PokemonDetails = () => {
                 <DivInformations>
                     <H3>Tipagem:</H3>
                     <Ul>
-                        {pokemonData.types.map((type, index)=>(<Li key={index}>{type.type.name}</Li>))}
+                        {pokemonData.types.map((type, index)=>(<Link key={index} to={`/type/${type.type.name}`}><Li type key={index}>{type.type.name}</Li></Link>))}
                     </Ul>
                 </DivInformations>
                 <DivInformations>
@@ -79,8 +76,6 @@ const PokemonDetails = () => {
         </Section>
     )
 }
-
-export { PokemonDetails }
 
 const Section = styled.section`
     display: flex;
@@ -142,15 +137,20 @@ const Div = styled.div`
 `
 const Li = styled.li`
     color: #5C2C2C;
-    width: ${props => props.ability ? "100%" : "20%" };
+    width: ${(ability, type) => ability && type ? "100%" : "20%" };
     padding-bottom: 5px;
-    cursor:${props => props.abilityDescription ? "none" : "pointer"};
+    cursor:${props => props.type ? "pointer" : "default"};
     font-weight:${props => props.abilityName ?"900": "none"};
     font-size:${props => props.abilityName ?"1.3rem": "none"};
     list-style-type: ${props => props.abilityDescription ? "none" : "disclosure-closed"};
     text-align: ${props => props.abilityDescription ? "justify" : "none"};
+    trasition: 1.5s;
     &:hover{
-        color: black;
+        color:${props => props.type ? "beige" : "black"};
+        background-color:${props => props.type ? " #A31717" : "none"};
+        // width:${props => props.type ? " 100%" : "100%"};
+        padding:${props => props.type ? " 5px" : "none"};
+        border-radius: 10px;
     }
 `
 const Btn = styled.div`
@@ -164,3 +164,4 @@ const Btn = styled.div`
         color: beige;
     }
 `
+export { PokemonDetails }

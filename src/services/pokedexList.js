@@ -1,7 +1,7 @@
-import {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
-import { baseUrl } from './baseUrl'
-import styled from 'styled-components'
+import {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+import { baseUrl } from './baseUrl';
+import styled from 'styled-components';
 
 let QuantityPokemons = 10
 let offSet = 0
@@ -55,13 +55,9 @@ const Pokedex = () => {
             })}
           </Ul>
           <Button type='submit' className='btn' onClick={AddMorePokemons} >Carregar Mais</Button>  
-
       </>
     )
   }
-
-export { Pokedex }
-
 
 const Ul=styled.ul`
   display: flex;
@@ -124,3 +120,5 @@ const Button = styled.button`
       color: beige;
   }
 `
+
+export { Pokedex }
