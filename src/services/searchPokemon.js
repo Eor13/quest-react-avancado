@@ -17,11 +17,11 @@ const PokemonDetails = () => {
         abilities:''
     })
     const {id} = useParams()
+    // 
     
     useEffect(() =>{
         const fetchData = async () =>{
-            const dataSearched = await searchPokemons(id)   
-
+            const dataSearched = await searchPokemons(id)
             const dataAbilities = dataSearched.abilities.map(async (ability)=>{return await getAbility(ability.ability.url)})
             const resultsAbilities = await Promise.all(dataAbilities)
 
@@ -31,8 +31,8 @@ const PokemonDetails = () => {
             })
             pokemonData.setData(dataSearched, resultsAbilities)
         }
-        
         fetchData()
+        
         async function getAbility(url){
             const response = await fetch(url)
             const result = await response.json()
@@ -49,7 +49,7 @@ const PokemonDetails = () => {
                 <DivInformations>
                     <H3>Tipagem:</H3>
                     <Ul>
-                        {pokemonData.types.map((type, index)=>(<Link key={index} to={`/type/${type.type.name}`}><Li type key={index}>{type.type.name}</Li></Link>))}
+                        {pokemonData.types.map((type, index)=>(<Link key={index} to={`/type/${type.type.name}`}><Li typeName>{type.type.name}</Li></Link>))}
                     </Ul>
                 </DivInformations>
                 <DivInformations>
@@ -58,8 +58,12 @@ const PokemonDetails = () => {
                         {pokemonData.abilitiesList.map((ability, index)=>{
                             return(
                                 <Div key={index}>
-                                <Li abilityName ability>{ability.name}</Li>
-                                <Li abilityDescription ability>{ability.effect_entries[1].effect}</Li>
+                                    <Li abilityName ability>{ability.name}</Li>
+                                    {ability.effect_entries.map((effect,i) =>{
+                                        return(
+                                            <Li key={i} abilityDescription ability>{i.effect}</Li>
+                                        )})
+                                    }
                                 </Div>
                             )})}
                     </Ul>
@@ -67,7 +71,7 @@ const PokemonDetails = () => {
                 <DivInformations attacks>
                     <H3>Lista de Ataques</H3>
                     <Ul attack>
-                        {pokemonData.movesList.map((move, index) =>(<Li key={index}> {move.move.name}</Li> ))}
+                        {pokemonData.movesList.map((move, index) =>(<Li key={index} attack> {move.move.name}</Li> ))}
                     </Ul>
                 </DivInformations>
                 <Link to={"/"}><Btn>Retornar à Lista</Btn></Link>
@@ -137,19 +141,19 @@ const Div = styled.div`
 `
 const Li = styled.li`
     color: #5C2C2C;
-    width: ${(ability, type) => ability && type ? "100%" : "20%" };
+    width: ${props => props.attack ? "28%" : "100%"};
     padding-bottom: 5px;
-    cursor:${props => props.type ? "pointer" : "default"};
+    text-decoration: none;
+    cursor:${props => props.typeName ? "pointer" : "default"};
     font-weight:${props => props.abilityName ?"900": "none"};
     font-size:${props => props.abilityName ?"1.3rem": "none"};
     list-style-type: ${props => props.abilityDescription ? "none" : "disclosure-closed"};
     text-align: ${props => props.abilityDescription ? "justify" : "none"};
     trasition: 1.5s;
     &:hover{
-        color:${props => props.type ? "beige" : "black"};
-        background-color:${props => props.type ? " #A31717" : "none"};
-        // width:${props => props.type ? " 100%" : "100%"};
-        padding:${props => props.type ? " 5px" : "none"};
+        color:${props => props.typeName ? "beige" : "black"};
+        background-color:${props => props.typeName ? " #A31717" : "none"};
+        padding:${props => props.typeName ? " 5px" : "none"};
         border-radius: 10px;
     }
 `

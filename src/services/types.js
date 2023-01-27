@@ -21,13 +21,10 @@ const TypeList = () =>{
             const dataSearched = await searchTypes(typeName)   
             const dataPokemons = dataSearched.pokemon.map(async (poke)=>{return await getPokemon(poke.pokemon.url)})
             const results = await Promise.all(dataPokemons)
-
-            const dataTypes = dataSearched
             setType(results)
         }
         
         fetchDataType()
-  
         async function getPokemon(url){
         const response = await fetch(url)
         const result = await response.json()
@@ -36,10 +33,11 @@ const TypeList = () =>{
     },[ typeName ])
 
     return(
+        <>
+        <H2>Pokemons do Tipo: <Span>{typeName}</Span> </H2>
         <Section>
             {
             <>
-                <h2>Pokemons do Tipo: {type.name} </h2>
                 <Ul>
                 {type.length > 0 &&
                     type.map((poke, index) => {
@@ -57,6 +55,7 @@ const TypeList = () =>{
             </>
             }
         </Section>
+      </>
     )
 }
 
@@ -76,6 +75,27 @@ const Section = styled.section`
         max-height: 75vh;
     }
 `
+const H2 = styled.h2`
+    text-align: center;
+    box-shadow: 0px 2px 15px black;
+    width: 95%;
+    font-size: 3.5rem;
+    border-radius: 8px;
+    margin-top: 10px;
+    color: #DB6767;
+    @media(max-width:830px){
+        font-size: 3rem;
+        width: 90%;
+    }
+    @media(max-width:500px){
+        font-size: 2.5rem;
+        width: 85%;
+    }
+`
+const Span = styled.span`
+    text-transform: uppercase;
+`
+
 const Ul=styled.ul`
   display: flex;
   flex-direction: row;

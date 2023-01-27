@@ -22,7 +22,6 @@ const Pokedex = () => {
       const dataPokemon = pokemonsList.results.map(async (pokemon)=>{return await getPokemon(pokemon.url)})
       const results = await Promise.all(dataPokemon)
       setPokedex(results)
-      // console.log(results)
     }
     fetchData()
     

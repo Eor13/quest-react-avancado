@@ -5,7 +5,7 @@ Projeto realizado para prática de conceitos com objetivo acadêmico, projeto pr
 
 ### O objetivo da Quest foi construir em React uma lista com 10 pokémons retirado do <a  href="https://pokeapi.co/" target="_blank">PokeAPI</a> com seus nomes e imagens, podendo ser buscado + 10 pokemons a cada click realizado no botão posicionado ao final da lista. Cada quadrado que contém um pokemom pode ser clicavél, desta forma direcionando a outra página com informações especifícas(Nome, Tipo, Habiidades, ...) do pokémon clicado.
 
-<a href="" target="_blank">Clique Aqui para ir direto para página</a>
+<a href="https://quest-react-avancado-chi.vercel.app/" target="_blank">Clique Aqui para ir direto para página</a>
 
 ## Tecnologias utilizadas
 - Javascript
@@ -15,7 +15,6 @@ Projeto realizado para prática de conceitos com objetivo acadêmico, projeto pr
 <ol>
     <li>Javascript
         <ul>
-            <li>Utilização de ArrowFunctions</li>
             <li>Utilização de Condicionais</li>
             <li>Utilização de Operadores Ternários</li>
             <li>Utilização de Higher Order Functions</li>
@@ -44,6 +43,11 @@ Projeto realizado para prática de conceitos com objetivo acadêmico, projeto pr
     <li>CSS
         <ul>
             <li>Utilização de <strong style="color:green;">Styled Components através do React</strong> para estilização das páginas</li>
+        </ul>
+    </li>
+    <li>Vercel
+        <ul>
+            <li>Utilização de plataforma para exibição página nos navegadores.</li>
         </ul>
     </li>
 
