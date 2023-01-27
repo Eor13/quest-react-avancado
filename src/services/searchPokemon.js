@@ -61,7 +61,7 @@ const PokemonDetails = () => {
                                     <Li abilityName ability>{ability.name}</Li>
                                     {ability.effect_entries.map((effect,i) =>{
                                         return(
-                                            <Li key={i} abilityDescription ability>{i.effect}</Li>
+                                            <Li key={i} abilityDescription ability>{effect.effect}</Li>
                                         )})
                                     }
                                 </Div>
