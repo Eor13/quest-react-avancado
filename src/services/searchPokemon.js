@@ -124,14 +124,19 @@ const H3 = styled.h3`
 const Ul = styled.ul`
     display: flex;
     flex-wrap: wrap;
-    justify-content: ${props => props.abilityName ? "flex-start" : "none"};
+    justify-content: ${props => props.abilityName ? "flex-start" : "center"};
     column-gap: 30px;
     width: 90%;
     align-items: flex-start;
     list-style-type: disclosure-closed  ;
     list-style-position:inside;
     overflow-y: ${props => props.attack ? "scroll": "none"};
-
+    @media(max-width:500px){
+        margin-left:${props => props.attack ? "50%": "none"};  
+    }
+    @media(max-width:375px){
+        margin-left:${props => props.attack ? "40%": "none"};  
+    }
 `
 const Div = styled.div`
     display:flex;
@@ -155,6 +160,12 @@ const Li = styled.li`
         background-color:${props => props.typeName ? " #A31717" : "none"};
         padding:${props => props.typeName ? " 5px" : "none"};
         border-radius: 10px;
+    }
+    @media(max-width:950px){
+        width:${props => props.attack ? "40%" : "100%"};  
+    }
+    @media(max-width:500px){
+        width: 100%;  
     }
 `
 const Btn = styled.div`
