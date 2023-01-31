@@ -13,8 +13,8 @@ async function searchPokemons(id){
 
 const PokemonDetails = () => {
     const [pokemon, setPokemon] = useState({
-        info: '',
-        abilities:''
+        info:'',
+        abilities: ''
     })
     const {id} = useParams()
     // 
@@ -39,8 +39,21 @@ const PokemonDetails = () => {
             return result
         }
     },[id])
+    console.log(pokemon)
 
+    const verificationOfName = () =>{
+    if(pokemon === {info:'', abilities:''}) {
+        <Section>
+            <DivInformations>
+                <H3>The name typed is not a pokemon.</H3>
+            </DivInformations>
+            <Link to={"/"}><Btn>Retornar à Lista</Btn></Link>
+        </Section>}
+    }
+    
+    verificationOfName()
     return(
+        
         <Section>
             {
             <>
