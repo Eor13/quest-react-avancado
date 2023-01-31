@@ -8,19 +8,11 @@ import styled from 'styled-components';
 async function searchPokemons(id){
     const response = await fetch(`${baseUrl}pokemon/${id}`)
     const result =  await response.json()
-    console.log(result)
-    if( result ==="Not Found"){
-        PokemonDetails.renderNotFound()
-        return alert("The name you type is not a Pokémon.")
-    }
     return result
 }
 
 const PokemonDetails = () => {
-    const [pokemon, setPokemon] = useState({
-        info:'',
-        abilities: ''
-    })
+    const [pokemon, setPokemon] = useState("")
     const {id} = useParams()
     
     
@@ -46,20 +38,18 @@ const PokemonDetails = () => {
     },[id])
     console.log(pokemon)
 
-    const verificationOfName = () =>{
-    if(pokemon === {info:'', abilities:''}) {
-        <Section>
-            <DivInformations>
-                <H3>The name typed is not a pokemon.</H3>
-            </DivInformations>
-            <Link to={"/"}><Btn>Retornar à Lista</Btn></Link>
-        </Section>}
-    }
-    
-    verificationOfName()
-    return(
-        
-        <Section>
+    if (pokemon === ""){
+        return(
+            <Section>
+                <DivInformations>
+                    <H3>The name typed is not a pokemon.</H3>
+                </DivInformations>
+                <Link to={"/"}><Btn>Retornar à Lista</Btn></Link>
+            </Section>
+        )
+    } else {
+        return(
+            <Section>
             {
             <>
                 <Img src={pokemonData.imagePokemon} alt={pokemon.name}/>
@@ -104,8 +94,9 @@ const PokemonDetails = () => {
                 <Link to={"/"}><Btn>Retornar à Lista</Btn></Link>
             </>
             }
-        </Section>
-    )
+            </Section>
+        )
+    }
 }
 
 const Section = styled.section`
