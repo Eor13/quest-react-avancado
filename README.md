@@ -1,9 +1,10 @@
 # Quest Avançada de React
 Projeto realizado para prática de conceitos com objetivo acadêmico, projeto proposto pelo cruso @DevQuest para simular um teste Técnico.
 
+<img src ="./src/components/image/page-preview.png" alt="Imagem da tela inicial do projeto.">
 <strong style="color:brown;">Prévia do design da Quest com detalhamento de suas Funcionalidades.</strong>
 
-### O objetivo da Quest foi construir em React uma lista com 10 pokémons retirado do <a  href="https://pokeapi.co/" target="_blank">PokeAPI</a> com seus nomes e imagens, podendo ser buscado + 10 pokemons a cada click realizado no botão posicionado ao final da lista. Cada quadrado que contém um pokemom pode ser clicavél, desta forma direcionando a outra página com informações especifícas(Nome, Tipo, Habiidades, ...) do pokémon clicado.
+O objetivo da Quest foi construir em React uma lista com 10 pokémons retirado do <a  href="https://pokeapi.co/" target="_blank">PokeAPI</a> com seus nomes e imagens, podendo ser buscado + 10 pokemons a cada click realizado no botão posicionado ao final da lista. Cada quadrado que contém um pokemom pode ser clicavél, desta forma direcionando a outra página com informações especifícas(Nome, Tipo, Habiidades, ...) do pokémon clicado.
 
 <a href="https://quest-react-avancado-chi.vercel.app/" target="_blank">Clique Aqui para ir direto para página</a>
 

@@ -8,6 +8,11 @@ import styled from 'styled-components';
 async function searchPokemons(id){
     const response = await fetch(`${baseUrl}pokemon/${id}`)
     const result =  await response.json()
+    console.log(result)
+    if( result ==="Not Found"){
+        PokemonDetails.renderNotFound()
+        return alert("The name you type is not a Pokémon.")
+    }
     return result
 }
 
@@ -17,7 +22,7 @@ const PokemonDetails = () => {
         abilities: ''
     })
     const {id} = useParams()
-    // 
+    
     
     useEffect(() =>{
         const fetchData = async () =>{
@@ -69,16 +74,25 @@ const PokemonDetails = () => {
                     <H3>habilidades:</H3>
                     <Ul abilityName>
                         {pokemonData.abilitiesList.map((ability, index)=>{
-                            return(
-                                <Div key={index}>
-                                    <Li abilityName ability>{ability.name}</Li>
-                                    {ability.effect_entries.map((effect,i) =>{
-                                        return(
-                                            <Li key={i} abilityDescription ability>{effect.effect}</Li>
-                                        )})
-                                    }
-                                </Div>
-                            )})}
+                            if (ability.effect_entries.length > 0) {
+                                return(
+                                    <Div key={index}>
+                                        <Li abilityName ability>{ability.name}</Li>
+                                        {ability.effect_entries.map((effect,i) =>{
+                                            return <Li key={i} abilityDescription ability>{ effect.effect}</Li> 
+                                        })}
+                                    </Div>
+                                )
+                            } else if (ability.effect_entries.length === 0) {
+                                //empty field correction
+                                return(
+                                    <Div key={index}>
+                                        <Li abilityName ability>{ability.name}</Li>
+                                        <Li abilityDescription ability>{`There is no description registered so far.`}</Li>
+                                    </Div>
+                                )
+                            }
+                        })}
                     </Ul>
                 </DivInformations>
                 <DivInformations attacks>
