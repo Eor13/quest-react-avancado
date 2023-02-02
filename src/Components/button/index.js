@@ -1,4 +1,4 @@
-import Pokebola from "../image/pokebola.png";
+import Pokebola from "../../image/pokebola.png";
 import { useContext } from "react";
 import { ThemeContext } from "../../services/theme-context";
 import styled from "styled-components";

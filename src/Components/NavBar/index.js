@@ -1,4 +1,4 @@
-import ImagemLogo from '../image/logo.png';
+import ImagemLogo from '../../image/logo.png';
 import { ThemeTogglerButton } from '../toggleButton';
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
