@@ -7,18 +7,25 @@ import styled from 'styled-components';
 
 async function searchPokemons(id){
     const response = await fetch(`${baseUrl}pokemon/${id}`)
+    if(response.status === 404){
+        return response.status
+    }
     const result =  await response.json()
     return result
 }
 
 const PokemonDetails = () => {
     const [pokemon, setPokemon] = useState("")
+    const [status, setStatus] = useState(0)
     const {id} = useParams()
     
     
     useEffect(() =>{
         const fetchData = async () =>{
             const dataSearched = await searchPokemons(id)
+            if(dataSearched === 404){
+                setStatus(dataSearched)
+            }
             const dataAbilities = dataSearched.abilities.map(async (ability)=>{return await getAbility(ability.ability.url)})
             const resultsAbilities = await Promise.all(dataAbilities)
 
@@ -36,9 +43,8 @@ const PokemonDetails = () => {
             return result
         }
     },[id])
-    console.log(pokemon)
 
-    if (pokemon === ""){
+    if (status === 404){
         return(
             <Section>
                 <DivInformations>
