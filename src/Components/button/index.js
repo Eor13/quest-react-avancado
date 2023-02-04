@@ -1,39 +1,15 @@
-import Pokebola from "../../image/pokebola.png";
+import Pokebola from "../../images/pokebola.png";
 import { useContext } from "react";
 import { ThemeContext } from "../../services/theme-context";
-import styled from "styled-components";
+import * as Styled from './style';
 
 const TogglerButton = (props) => {
     const { theme } = useContext(ThemeContext)
     return(
-        <Button {...props} style={{color: theme.color, background: theme.background}}>
-          <Img src={Pokebola} alt="Botão de Troca de Tema"/>
-        </Button>
+        <Styled.Button {...props} style={{color: theme.color, background: theme.background}}>
+          <Styled.Img src={Pokebola} alt="Botão de Troca de Tema"/>
+        </Styled.Button>
     )
 }
 
-
-const Button = styled.button`
-    border: 1px solid #DB6767;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    cursor:pointer;
-
-    @media(max-width:830px){
-        width: 75px;
-        height: 75px;    
-    }
-    @media(max-width:500px){
-        width: 45px;
-        height: 45px;    
-    }
-
-`
-const Img = styled.img`
-    width: 90%;
-`
 export { TogglerButton }

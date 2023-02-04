@@ -1,18 +1,22 @@
-import { Pokedex } from '../../services/pokedexList';
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const CardsList =() =>{
-    return(
-        <>
-            <PageTitle>Pokedex</PageTitle>
-            <Section>
-                <Pokedex/>
-            </Section>
-        </>
-    )
-}
 
-const PageTitle = styled.h1`
+export const Div = styled.div`
+    min-height:100vh
+`
+export const Main = styled.main`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:auto;
+    width: 100vw;
+    max-width: 1440px;
+    row-gap: 10px;
+    @media(max-width:500px){
+        width: 95vw;    
+    }
+`
+export const PageTitle = styled.h1`
     text-align: center;
     box-shadow: 0px 2px 15px black;
     width: 95%;
@@ -29,7 +33,7 @@ const PageTitle = styled.h1`
         width: 85%;
     }
 `
-const Section = styled.section`
+export const Section = styled.section`
     display: flex;
     flex-direction: column;
     background-color: #DB6767;
@@ -45,4 +49,3 @@ const Section = styled.section`
         max-height: 75vh;
     }
 `
-export { CardsList }
