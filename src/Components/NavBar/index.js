@@ -3,7 +3,6 @@ import { ThemeTogglerButton } from '../toggleButton';
 import * as Styled from './style';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-//asasasasa
 
 const InputSearched =() => {
     const [name, setName] = useState('')
