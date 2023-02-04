@@ -2,7 +2,7 @@ import Pokebola from "../../images/pokebola.png";
 import { useContext } from "react";
 import { ThemeContext } from "../../services/theme-context";
 import * as Styled from './style';
-//adalkdaldkaldkald
+//sasasas
 
 const TogglerButton = (props) => {
     const { theme } = useContext(ThemeContext)
