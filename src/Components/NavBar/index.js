@@ -28,7 +28,7 @@ const InputSearched =() => {
     )
 }
 
-const NavBar = () => {
+export const NavBar = () => {
     return(
         <Styled.Nav>
             <Styled.NavLink to="/">
@@ -39,5 +39,3 @@ const NavBar = () => {
         </Styled.Nav>
     )
 }
-
-export { NavBar }
