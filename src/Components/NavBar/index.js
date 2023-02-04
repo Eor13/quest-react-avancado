@@ -1,4 +1,4 @@
-import ImagemLogo from '../../images/logo.png';
+import ImageLogo from '../../images/logo.png';
 import { ThemeTogglerButton } from '../toggleButton';
 import * as Styled from './style';
 import { useState } from 'react';
@@ -32,7 +32,7 @@ const NavBar = () => {
     return(
         <Styled.Nav>
             <Styled.NavLink to="/">
-                <Styled.Img src={ImagemLogo} alt="Logo Pokemon"/>
+                <Styled.Img src={ImageLogo} alt="Logo Pokemon"/>
             </Styled.NavLink>
             <InputSearched/>
             <ThemeTogglerButton/>
