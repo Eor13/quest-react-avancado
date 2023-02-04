@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Details, ListPokemonByType } from "./othersPages";
-import { Home } from "./home";
 import * as Styled from './style';
-import { NavBar } from "../components/navBar";
+import { Home } from "./home";
+import { NavBar } from "../components/navBar/index";
 import { useContext } from "react";
 import { ThemeContext } from '../services/theme-context';
 
